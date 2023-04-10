@@ -10,7 +10,7 @@ public class PLAYERCA : MonoBehaviour
     Animator animator;
     public float velocity = 10;
     public float vcorrer = 20;
-
+    public float JumpForce = 5; 
 
 
     
@@ -25,7 +25,7 @@ public class PLAYERCA : MonoBehaviour
     const int ANIMATION_DISPARAR = 6;
 
     const int ANIMATION_MORIR = 7;
-
+    const int ANIMATION_SALTAR = 8;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -116,8 +116,18 @@ public class PLAYERCA : MonoBehaviour
             ChangeAnimation(ANIMATION_MORIR);
         }
 
+        if (Input.GetKeyDown(KeyCode.Space) )
+        {
+           
+            rb.AddForce(new Vector2(0,JumpForce),ForceMode2D.Impulse);
+            ChangeAnimation(ANIMATION_SALTAR);
+           
+
+           
+        }
+
     
-    }
+ }
 
      private void ChangeAnimation(int animation)
     {
@@ -125,4 +135,5 @@ public class PLAYERCA : MonoBehaviour
        
 
     }
+   
 }
