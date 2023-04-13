@@ -10,10 +10,14 @@ public class PLAYERCA : MonoBehaviour
     Animator animator;
     public float velocity = 10;
     public float vcorrer = 20;
-    public float JumpForce = 5; 
+    public float JumpForce = 50f; 
 
+    public const int SaltoMax = 2;
+    int aux = 2;
 
-    
+   public PiesSalto piesSalto;
+    public ParedSalto paredSalto;
+    public ParedIzquierda paredIzquierda;
     const int ANIMATION_QUIETO = 0;
     const int ANIMATION_CAMINAR = 1;
     const int ANIMATION_CORRER = 2;
@@ -116,16 +120,47 @@ public class PLAYERCA : MonoBehaviour
             ChangeAnimation(ANIMATION_MORIR);
         }
 
-        if (Input.GetKeyDown(KeyCode.Space) )
+        if (Input.GetKeyDown(KeyCode.Space) && piesSalto.aux1<1)
         {
            
             rb.AddForce(new Vector2(0,JumpForce),ForceMode2D.Impulse);
             ChangeAnimation(ANIMATION_SALTAR);
-           
+            piesSalto.aux1++;
 
            
         }
 
+         if (Input.GetKeyDown(KeyCode.Space) && paredSalto.puedeSaltarPared)
+        {
+           
+            rb.AddForce(new Vector2(0,JumpForce),ForceMode2D.Impulse);
+            ChangeAnimation(ANIMATION_SALTAR);
+           paredSalto.puedeSaltarPared = false;
+
+           
+        }
+ if (Input.GetKeyDown(KeyCode.Space) && (paredIzquierda.puedeSaltarParedIzquierda) )
+        {
+           
+            rb.AddForce(new Vector2(0,JumpForce),ForceMode2D.Impulse);
+            ChangeAnimation(ANIMATION_SALTAR);
+           paredIzquierda.puedeSaltarParedIzquierda = false;
+
+           
+        }
+ if (Input.GetKeyDown(KeyCode.Space) && aux<1)
+        {
+           
+            rb.AddForce(new Vector2(0,JumpForce),ForceMode2D.Impulse);
+            ChangeAnimation(ANIMATION_SALTAR);
+           aux++;
+ 
+        }
+
+
+
+
+    
     
  }
 
@@ -135,5 +170,14 @@ public class PLAYERCA : MonoBehaviour
        
 
     }
+    private void OnTriggerEnter2D(Collider2D other) {
+        
+         if(other.gameObject.tag == "fruta"){
+        aux=0;
+         }
+
+    }
+
+ 
    
 }
