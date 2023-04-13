@@ -8,7 +8,7 @@ public class PLAYERCA : MonoBehaviour
     Rigidbody2D rb;
      SpriteRenderer sr;
     Animator animator;
-    public float velocity = 10;
+    public float velocity = 5;
     public float vcorrer = 20;
     public float JumpForce = 50f; 
 
@@ -176,6 +176,25 @@ public class PLAYERCA : MonoBehaviour
         aux=0;
          }
 
+         if(other.gameObject.tag == "techoZombie"){
+            velocity = 3;
+         }
+
+          if(other.gameObject.tag == "techoZombie2"){
+            velocity = 5;
+         }
+
+          if(other.gameObject.tag == "techoZombie3"){
+            velocity = 8;
+         }
+
+    }
+
+    private void OnCollisionEnter2D(Collision2D other) {
+        
+        if(other.gameObject.tag == "zombie"){
+            Time.timeScale = 0;
+         }
     }
 
  

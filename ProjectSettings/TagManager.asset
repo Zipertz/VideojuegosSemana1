@@ -7,6 +7,10 @@ TagManager:
   - Pared
   - Piso
   - fruta
+  - zombie
+  - techoZombie
+  - techoZombie2
+  - techoZombie3
   layers:
   - Default
   - TransparentFX
