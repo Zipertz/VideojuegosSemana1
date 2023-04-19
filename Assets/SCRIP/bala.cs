@@ -2,16 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Zombie : MonoBehaviour
+public class bala : MonoBehaviour
 {
-
-     SpriteRenderer sr;
+      SpriteRenderer sr;
     Animator animator;
-    public float velocity = 1f;
+    public float velocity = 1;
      private Rigidbody2D rb;
+  public float Speed;
+       public void SetRightDirection(){
+        Speed = velocity;
+    }
+    public void SetLeftDirection(){
+        Speed = -velocity;
+    }
     // Start is called before the first frame update
     void Start()
     {
+        Destroy(this.gameObject,5);
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
@@ -21,17 +28,16 @@ public class Zombie : MonoBehaviour
     void Update()
     {
    
-        rb.velocity = new Vector2 (-velocity,0);
-        sr.flipX = true;
+        rb.velocity = new Vector2(Speed,0);
+        
         
     }
     void OnCollisionEnter2D(Collision2D other) {
         
-   if(other.gameObject.tag == "bala"){
-           Destroy(this.gameObject);
-         }
-      
+   
+      Destroy(this.gameObject);
     
     }
+   
     
 }

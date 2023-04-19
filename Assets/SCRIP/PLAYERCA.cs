@@ -14,7 +14,7 @@ public class PLAYERCA : MonoBehaviour
 
     public const int SaltoMax = 2;
     int aux = 2;
-
+    public GameObject bullet;
    public PiesSalto piesSalto;
     public ParedSalto paredSalto;
     public ParedIzquierda paredIzquierda;
@@ -148,6 +148,11 @@ public class PLAYERCA : MonoBehaviour
 
            
         }
+
+
+
+
+
  if (Input.GetKeyDown(KeyCode.Space) && aux<1)
         {
            
@@ -157,7 +162,33 @@ public class PLAYERCA : MonoBehaviour
  
         }
 
+ if (Input.GetKeyDown(KeyCode.L)  ){
 
+          if(sr.flipX == false){
+               
+                
+                var shieldPosition = transform.position + new Vector3(1,0,0);
+                var gb = Instantiate(bullet,
+                                 shieldPosition,
+                                 Quaternion.identity) as GameObject;
+                var controller =gb.GetComponent<bala>();
+                controller.SetRightDirection(); 
+                
+             }
+             if(sr.flipX==true){
+                
+                
+                var shieldPosition = transform.position + new Vector3(-1,0,0);
+                var gb = Instantiate(bullet,
+                                 shieldPosition,
+                                 Quaternion.identity) as GameObject;
+                var controller =gb.GetComponent<bala>();
+                controller.SetLeftDirection(); 
+               
+             }
+                     
+        
+        }
 
 
     
@@ -195,6 +226,8 @@ public class PLAYERCA : MonoBehaviour
         if(other.gameObject.tag == "zombie"){
             Time.timeScale = 0;
          }
+
+         
     }
 
  

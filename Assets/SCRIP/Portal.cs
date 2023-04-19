@@ -2,36 +2,34 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Zombie : MonoBehaviour
+public class Portal : MonoBehaviour
 {
-
+     Rigidbody2D rb;
      SpriteRenderer sr;
     Animator animator;
-    public float velocity = 1f;
-     private Rigidbody2D rb;
+    public GameObject zombie;
+    private float tiempoEnemigo =3f;
+    private float tiempoultimo = 0f;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
+      
+
     }
 
     // Update is called once per frame
     void Update()
     {
-   
-        rb.velocity = new Vector2 (-velocity,0);
-        sr.flipX = true;
-        
+       tiempoultimo += Time.deltaTime;
+       if(tiempoultimo >= tiempoEnemigo)
+       {
+        tiempoultimo = 0f;
+        Instantiate(zombie, transform.position, Quaternion.identity);
+       }
+       
     }
-    void OnCollisionEnter2D(Collision2D other) {
-        
-   if(other.gameObject.tag == "bala"){
-           Destroy(this.gameObject);
-         }
-      
-    
-    }
-    
+
 }
