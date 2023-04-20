@@ -31,6 +31,15 @@ public class Zombie : MonoBehaviour
            Destroy(this.gameObject);
          }
       
+      if(other.gameObject.tag == "bala1"){
+           Destroy(this.gameObject);
+         }
+         if(other.gameObject.tag == "bala2"){
+           Destroy(this.gameObject);
+         }
+         if(other.gameObject.tag == "bala3"){
+           Destroy(this.gameObject);
+         }
     
     }
     

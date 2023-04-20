@@ -167,7 +167,7 @@ public class PLAYERCA : MonoBehaviour
           if(sr.flipX == false){
                
                 
-                var shieldPosition = transform.position + new Vector3(1,0,0);
+                var shieldPosition = transform.position + new Vector3(2,0,0);
                 var gb = Instantiate(bullet,
                                  shieldPosition,
                                  Quaternion.identity) as GameObject;
@@ -178,7 +178,7 @@ public class PLAYERCA : MonoBehaviour
              if(sr.flipX==true){
                 
                 
-                var shieldPosition = transform.position + new Vector3(-1,0,0);
+                var shieldPosition = transform.position + new Vector3(-2,0,0);
                 var gb = Instantiate(bullet,
                                  shieldPosition,
                                  Quaternion.identity) as GameObject;
