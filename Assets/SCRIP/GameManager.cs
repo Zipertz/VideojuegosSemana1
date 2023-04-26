@@ -9,12 +9,14 @@ public class GameManager : MonoBehaviour
 
      private int lives;
      private int coin1;
+
+     AudioSource audioSource;
     // Start is called before the first frame update
     void Start()
     {
          lives=3;
          coin1=0;
-
+           audioSource = GetComponent<AudioSource>();
         PrintScreenCoin1();
      
         PrintScreenLives();
@@ -40,6 +42,9 @@ public class GameManager : MonoBehaviour
 
     this.lives -=1;
     PrintScreenLives();
+    if (this.lives==0){
+     audioSource.Stop();
+    }
     
 
    }

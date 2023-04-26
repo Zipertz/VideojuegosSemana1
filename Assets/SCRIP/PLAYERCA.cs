@@ -15,6 +15,7 @@ public class PLAYERCA : MonoBehaviour
  
   public AudioClip jumpclip;
   public AudioClip coin;
+  public AudioClip muerte;
  AudioSource audioSource;
 
 
@@ -224,7 +225,7 @@ public class PLAYERCA : MonoBehaviour
             velocity = 3;
          }
 
-          if(other.gameObject.tag == "techoZombie2"){
+          if(other.gameObject.tag == "techoZombie2"){ 
             velocity = 5;
          }
 
@@ -251,7 +252,7 @@ public class PLAYERCA : MonoBehaviour
                aux2++;
             if(aux2 == 3)
             {
-                
+                audioSource.PlayOneShot(muerte);
                 Time.timeScale = 0;
                 
             }

@@ -864,6 +864,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7352038837120849249, guid: f3f5c69ec1b41944c9b30386a74fbf71, type: 3}
     - target: {fileID: 5862936616669909223, guid: 1145d1c49d153f3459d288cdab115698, type: 3}
+      propertyPath: muerte
+      value: 
+      objectReference: {fileID: 8300000, guid: a471e88ca38f0ba468a3e87e72c7697b, type: 3}
+    - target: {fileID: 5862936616669909223, guid: 1145d1c49d153f3459d288cdab115698, type: 3}
       propertyPath: jumpclip
       value: 
       objectReference: {fileID: 8300000, guid: c08d1154c7890674491aeacf1e5b3be5, type: 3}
