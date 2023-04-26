@@ -15,6 +15,7 @@ TagManager:
   - bala1
   - bala2
   - bala3
+  - moneda
   layers:
   - Default
   - TransparentFX
