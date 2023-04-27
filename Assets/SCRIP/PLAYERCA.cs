@@ -175,7 +175,7 @@ public class PLAYERCA : MonoBehaviour
  
         }
 
- if (Input.GetKeyDown(KeyCode.L)  ){
+ if (Input.GetKeyDown(KeyCode.L) && gameManager.auxbalas() > 0){
 
           if(sr.flipX == false){
                
@@ -186,7 +186,7 @@ public class PLAYERCA : MonoBehaviour
                                  Quaternion.identity) as GameObject;
                 var controller =gb.GetComponent<bala>();
                 controller.SetRightDirection(); 
-                
+                gameManager.perderBala();
                 
              }
              if(sr.flipX==true){
@@ -198,6 +198,7 @@ public class PLAYERCA : MonoBehaviour
                                  Quaternion.identity) as GameObject;
                 var controller =gb.GetComponent<bala>();
                 controller.SetLeftDirection(); 
+                gameManager.perderBala();
                
              }
                      
@@ -241,16 +242,26 @@ public class PLAYERCA : MonoBehaviour
            
          }
 
+         if(other.gameObject.tag == "municion"){
+             audioSource.PlayOneShot(coin);
+             gameManager.GanarBala();
+             Destroy(other.gameObject);
+
+           
+         }
+         
+
+
     }
 
     private void OnCollisionEnter2D(Collision2D other) {
         
         if(other.gameObject.tag == "zombie"){
            
-             gameManager.PerderVida(3);
+             gameManager.PerderVida(2);
 
                aux2++;
-            if(aux2 == 3)
+            if(aux2 == 2)
             {
                 audioSource.PlayOneShot(muerte);
                 Time.timeScale = 0;

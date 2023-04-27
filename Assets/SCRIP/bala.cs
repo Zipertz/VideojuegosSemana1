@@ -104,7 +104,18 @@ public class bala : MonoBehaviour
 
     }
   
+      void OnCollisionEnter2D(Collision2D other) {
+        
+   if(other.gameObject.tag == "zombie"){
+            
+                Destroy(this.gameObject);
+
+           
+         }
       
+   
+    
+    }
    
       
   

@@ -16,6 +16,8 @@ TagManager:
   - bala2
   - bala3
   - moneda
+  - municion
+  - municion1
   layers:
   - Default
   - TransparentFX

@@ -6,21 +6,39 @@ public class GameManager : MonoBehaviour
 {
      public Text livesText ;
      public Text MonedaText ;
+     public Text EnemigoText ;
+     public Text BalasText ;
 
      private int lives;
      private int coin1;
+
+      private int balas;
+
+       private int zombie;
 
      AudioSource audioSource;
     // Start is called before the first frame update
     void Start()
     {
-         lives=3;
+         lives=2;
          coin1=0;
-           audioSource = GetComponent<AudioSource>();
+         balas=5;
+         zombie=0;
+          audioSource = GetComponent<AudioSource>();
         PrintScreenCoin1();
      
         PrintScreenLives();
+
+        
+        PrintScreenEnemigo();
+
+        
+        PrintScreenBalas();
+        PrintSPerderBalas();
     }
+   public int auxbalas(){
+     return balas;
+   }
 
     // Update is called once per frame
     //  public int Lives(){
@@ -38,6 +56,22 @@ public class GameManager : MonoBehaviour
     coin1 += moneda1;
     PrintScreenCoin1();
    }
+
+     public void GanarEnemigo(int enemigo){
+    zombie += enemigo;
+    PrintScreenEnemigo();
+   }
+
+      public void GanarBala(){
+     balas = balas+5;
+    PrintScreenBalas();
+   }
+
+ public void perderBala(){
+     this.balas-=1;
+     PrintSPerderBalas();
+    
+    }
    public void PerderVida(int lives){
 
     this.lives -=1;
@@ -58,4 +92,23 @@ public class GameManager : MonoBehaviour
         MonedaText.text = "Moneda: " + coin1;
 
    }
+
+
+    private void  PrintScreenEnemigo(){
+        EnemigoText.text = "Zombie: " + zombie;
+
+   }
+     
+ private void  PrintScreenBalas(){
+        BalasText.text = "Balas: " + balas;
+
+   }
+         private void  PrintSPerderBalas(){
+        BalasText.text = "Balas: "+ balas;
+
+   }
+
+
+
+        
 }

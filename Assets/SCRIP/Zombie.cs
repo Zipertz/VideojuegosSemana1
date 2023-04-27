@@ -4,17 +4,19 @@ using UnityEngine;
 
 public class Zombie : MonoBehaviour
 {
-
+private GameManager gameManager;
      SpriteRenderer sr;
     Animator animator;
     public float velocity = 1f;
      private Rigidbody2D rb;
+     private int cont1 = 0;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
+        gameManager = FindObjectOfType<GameManager>();
     }
 
     // Update is called once per frame
@@ -28,7 +30,14 @@ public class Zombie : MonoBehaviour
     void OnCollisionEnter2D(Collision2D other) {
         
    if(other.gameObject.tag == "bala"){
-           Destroy(this.gameObject);
+              cont1++;
+            if (cont1 == 2)
+            {
+                Destroy(this.gameObject);
+
+                gameManager.GanarEnemigo(1);
+                
+            }
          }
       
       if(other.gameObject.tag == "bala1"){
