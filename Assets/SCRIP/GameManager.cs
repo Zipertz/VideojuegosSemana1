@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
     {
          lives=2;
          coin1=0;
-         balas=5;
+         balas=15;
          zombie=0;
           audioSource = GetComponent<AudioSource>();
         PrintScreenCoin1();
@@ -42,6 +42,14 @@ public class GameManager : MonoBehaviour
 
    public int auxcoin(){
      return coin1;
+   }
+
+   public int auxlive(){
+     return lives;
+   }
+
+   public int auxzombie(){
+   return zombie;
    }
 
     // Update is called once per frame
@@ -93,13 +101,13 @@ public class GameManager : MonoBehaviour
 
    
     private void PrintScreenCoin1(){
-        MonedaText.text = "Moneda: " + coin1;
+        MonedaText.text = "Llave: " + coin1;
 
    }
 
 
     private void  PrintScreenEnemigo(){
-        EnemigoText.text = "Zombie: " + zombie;
+        EnemigoText.text = "puntos: " + zombie;
 
    }
      

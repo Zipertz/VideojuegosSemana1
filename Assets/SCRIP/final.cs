@@ -6,30 +6,41 @@ public class final : MonoBehaviour
 {
     private GameManager gameManager;
     private moneda contmoneda;
+
+    private bool botonPaso = false;
     // Start is called before the first frame update
     void Start()
     {
         contmoneda = FindObjectOfType<moneda>(); 
          gameManager = FindObjectOfType<GameManager>(); 
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+    void update(){
+        botonApagado();
     }
 
-     private void OnTriggerEnter2D(Collider2D other) {
-     
-         if(other.gameObject.tag == "Player"){
+    public void botonPrendido(){
+        botonPaso = true;
+    }
+
+    public void botonApagado(){
+        botonPaso = false;
+    }
+
+private void OnCollisionEnter2D(Collision2D other) {
+     if(other.gameObject.tag == "Player"){
 
             Debug.Log(gameManager.auxcoin());
-           if(gameManager.auxcoin() == 2){
-                     SceneManager.LoadScene(0);
-                }
+            Debug.Log(botonPaso);
+           if(gameManager.auxcoin() == 1 && gameManager.auxzombie() == 3 && botonPaso == true ){
+            
+                 SceneManager.LoadScene(0);
+            }    
+                
            
          }
 
-    }
-   
+
+}
+    
+
 }

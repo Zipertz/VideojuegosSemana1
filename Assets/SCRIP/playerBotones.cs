@@ -114,7 +114,17 @@ public void Quieto()
         
     }
 
+    public void ComprobaPuerta(){
 
+        
+    }
+
+     private void OnCollisionEnter2D(Collision2D other) {
+         if(other.gameObject.tag == "Piso"){
+             aux = 0;
+
+         }
+     }
     
 }
 

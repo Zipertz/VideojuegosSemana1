@@ -49,7 +49,13 @@ private GameManager gameManager;
          if(other.gameObject.tag == "bala3"){
            Destroy(this.gameObject);
          }
-    
+
+        if(other.gameObject.tag == "Player"){
+          gameManager.PerderVida(1);
+           if(gameManager.auxlive() == 0){
+                     Time.timeScale = 0;
+                }
+         }
     }
     
 }

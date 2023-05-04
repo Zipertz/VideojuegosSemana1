@@ -99,7 +99,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d389507f2810f3a488800d0d702df87d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocity: 2
+  velocity: 4
+  puntajetexto: {fileID: 0}
   bullet1: {fileID: 7970411842784949841, guid: cd9bd9ab2a17ff14186ce0636a1c7058, type: 3}
   bullet2: {fileID: 4676383244010177202, guid: 890102db35e9fd54cbfad98a875fd7f1, type: 3}
   bullet3: {fileID: 2176781374086834983, guid: 90cf8a5c4dd114a4dab6e523895156f2, type: 3}
