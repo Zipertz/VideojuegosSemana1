@@ -8,4 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Escena2.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/textos.unity
+    guid: e7d76260a52cd1c4bbe6b4b65749d991
   m_configObjects: {}

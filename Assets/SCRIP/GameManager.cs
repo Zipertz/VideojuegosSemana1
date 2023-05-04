@@ -40,6 +40,10 @@ public class GameManager : MonoBehaviour
      return balas;
    }
 
+   public int auxcoin(){
+     return coin1;
+   }
+
     // Update is called once per frame
     //  public int Lives(){
 
@@ -52,8 +56,8 @@ public class GameManager : MonoBehaviour
     //     return coin1;
 
     // }
-    public void GanarCoin1(int moneda1){
-    coin1 += moneda1;
+    public void GanarCoin1(int coins1){
+    coin1 += coins1;
     PrintScreenCoin1();
    }
 

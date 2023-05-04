@@ -18,6 +18,7 @@ TagManager:
   - moneda
   - municion
   - municion1
+  - pasolvl
   layers:
   - Default
   - TransparentFX
