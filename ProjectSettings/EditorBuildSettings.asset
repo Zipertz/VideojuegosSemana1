@@ -11,4 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/textos.unity
     guid: e7d76260a52cd1c4bbe6b4b65749d991
+  - enabled: 1
+    path: Assets/Scenes/seman5.unity
+    guid: 950b7cdf1f681a34bb8b0fb650dae9ef
+  - enabled: 1
+    path: Assets/Scenes/seman6.unity
+    guid: 85f7fe8bee6164c4ebf306ed387fb1b7
   m_configObjects: {}

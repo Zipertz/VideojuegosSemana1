@@ -2,6 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
+using TMPro;
+
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 public class GameManager : MonoBehaviour
 {
      public Text livesText ;
@@ -21,7 +26,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
          lives=2;
-         coin1=0;
+         coin1=0; 
          balas=15;
          zombie=0;
           audioSource = GetComponent<AudioSource>();
@@ -35,7 +40,59 @@ public class GameManager : MonoBehaviour
         
         PrintScreenBalas();
         PrintSPerderBalas();
+        LoadGame();
     }
+
+   public void SaveGame(){
+        var filePath = Application.persistentDataPath + "/t3-1.dat";
+        FileStream file;
+
+        if(File.Exists(filePath))
+            file = File.OpenWrite(filePath);
+        else    
+            file = File.Create(filePath);
+
+        GameData data = new GameData();
+        data.Balas = balas;
+        data.Lives = lives;
+        data.Zombie = zombie;
+        data.Coin1=coin1;
+        BinaryFormatter bf = new BinaryFormatter();
+        bf.Serialize(file,data);
+        file.Close();
+
+    }
+
+
+      public void LoadGame(){
+            var filePath = Application.persistentDataPath + "/t3-1.dat";
+        FileStream file;
+
+        if(File.Exists(filePath)){
+            file = File.OpenRead(filePath);
+        }
+        else    {
+            Debug.LogError("No se encontreo archivo");
+            return;
+        }
+        BinaryFormatter bf = new BinaryFormatter();
+        GameData data = (GameData) bf.Deserialize(file);
+        file.Close();
+
+        //utilizar los datos guardados
+        coin1 = data.Coin1;
+        zombie= data.Zombie;
+        balas = data.Balas;
+        lives = data.Lives;
+    
+        PrintScreenLives();
+        PrintScreenCoin1();
+        PrintScreenEnemigo();
+        PrintScreenBalas();
+    }
+
+ 
+
    public int auxbalas(){
      return balas;
    }

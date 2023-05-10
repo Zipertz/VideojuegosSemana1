@@ -249,7 +249,16 @@ public class PLAYERCA : MonoBehaviour
 
            
          }
-         
+         if (other.gameObject.tag == "guardar")    
+        {
+           
+           
+           
+          gameManager.SaveGame();
+           SceneManager.LoadScene(3);
+           Debug.Log("guardo");
+           
+        }
 
 
     }

@@ -19,6 +19,7 @@ TagManager:
   - municion
   - municion1
   - pasolvl
+  - guardar
   layers:
   - Default
   - TransparentFX
