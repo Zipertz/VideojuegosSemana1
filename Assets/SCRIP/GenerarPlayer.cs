@@ -13,7 +13,7 @@ public class GenerarPlayer : MonoBehaviour
     void Start()
     {
         gameManager = FindObjectOfType<GameManager>(); 
-         if(gameManager.Personajes() == 0){
+         if(gameManager.Personajes() == 1){
       var shieldPosition = transform.position + new Vector3(2,0,0);
                 var gb = Instantiate(Gpersonaje,
                                  shieldPosition,
@@ -21,7 +21,7 @@ public class GenerarPlayer : MonoBehaviour
                 var controller =gb.GetComponent<PLAYERCA>();
   }
 
-  if(gameManager.Personajes() == 1){
+  if(gameManager.Personajes() == 0){
 
     var shieldPosition1 = transform.position + new Vector3(2,0,0);
                 var gb = Instantiate(Gpersonaje2,

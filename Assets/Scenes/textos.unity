@@ -512,6 +512,18 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6621036088557284897, guid: c2b6c82aee2d3b2408a8ea52d6678631, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2069888186}
+    - target: {fileID: 6621036088557284897, guid: c2b6c82aee2d3b2408a8ea52d6678631, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ComprobaPuerta
+      objectReference: {fileID: 0}
+    - target: {fileID: 6621036088557284897, guid: c2b6c82aee2d3b2408a8ea52d6678631, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: playerBotones, Assembly-CSharp
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c2b6c82aee2d3b2408a8ea52d6678631, type: 3}
 --- !u!1 &967037250

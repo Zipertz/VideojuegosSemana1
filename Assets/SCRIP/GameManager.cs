@@ -30,15 +30,17 @@ public class GameManager : MonoBehaviour
       private int balas;
 
        private int zombie;
+  private int zombie2;
 
      AudioSource audioSource;
     // Start is called before the first frame update
     void Start()
     {
-         lives=2;
+         lives=3;
          coin1=0; 
-         balas=15;
+         balas=50;
          zombie=0;
+         zombie2=0;
           audioSource = GetComponent<AudioSource>();
         PrintScreenCoin1();
      
@@ -54,7 +56,7 @@ public class GameManager : MonoBehaviour
     }
 
    public void SaveGame(){
-        var filePath = Application.persistentDataPath + "/prueba.dat";
+        var filePath = Application.persistentDataPath + "/prueba6.dat";
         FileStream file;
 
         if(File.Exists(filePath))
@@ -66,6 +68,7 @@ public class GameManager : MonoBehaviour
         data.Balas = balas;
         data.Lives = lives;
         data.Zombie = zombie;
+        data.player1 = zombie2;
         data.Coin1=coin1;
         data.Currentplayer = currentplayer;
         BinaryFormatter bf = new BinaryFormatter();
@@ -76,7 +79,7 @@ public class GameManager : MonoBehaviour
 
 
       public void LoadGame(){
-            var filePath = Application.persistentDataPath + "/prueba.dat";
+            var filePath = Application.persistentDataPath + "/prueba6.dat";
         FileStream file;
 
         if(File.Exists(filePath)){
@@ -93,6 +96,7 @@ public class GameManager : MonoBehaviour
         //utilizar los datos guardados
         coin1 = data.Coin1;
         zombie= data.Zombie;
+        
         balas = data.Balas;
         lives = data.Lives;
         currentplayer = data.Currentplayer;
@@ -144,7 +148,17 @@ public class GameManager : MonoBehaviour
    }
 
      public void GanarEnemigo(int enemigo){
-    zombie += enemigo;
+      
+        zombie += enemigo;
+      
+   
+
+    
+    PrintScreenEnemigo();
+   }
+
+   public void GanarEnemigo2(int enemigo){
+    zombie2 += enemigo;
     PrintScreenEnemigo();
    }
 
@@ -181,7 +195,10 @@ public class GameManager : MonoBehaviour
 
 
     private void  PrintScreenEnemigo(){
+      
         EnemigoText.text = "puntos: " + zombie;
+       
+        
 
    }
      
@@ -224,8 +241,28 @@ public void siguientePersonaje() {
       SceneManager.LoadScene(2);
       
     }
+    public void lvl2 ()  {
+      if(auxzombie() == 5 ){
+      SaveGame();
+      SceneManager.LoadScene(2);
+      }
+      
+    }
 
+     public void lvl3 ()  {
+      if(auxzombie() == 10 ){
+      SaveGame();
+      SceneManager.LoadScene(2);
+      }
+      
+    }
 
+    public void menu() {
+
+      SaveGame();
+      SceneManager.LoadScene(4);
+      
+    }
  
    
 
