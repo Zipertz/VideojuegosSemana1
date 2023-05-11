@@ -7,8 +7,18 @@ using TMPro;
 
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
+using UnityEngine.SceneManagement;
+
 public class GameManager : MonoBehaviour
 {
+
+
+    public Image imageComponent;
+    public Sprite[] players;
+    public int currentplayer = 0;
+    public GameObject Gpersonaje; 
+    public GameObject Gpersonaje2; 
+
      public Text livesText ;
      public Text MonedaText ;
      public Text EnemigoText ;
@@ -44,7 +54,7 @@ public class GameManager : MonoBehaviour
     }
 
    public void SaveGame(){
-        var filePath = Application.persistentDataPath + "/t3-1.dat";
+        var filePath = Application.persistentDataPath + "/prueba.dat";
         FileStream file;
 
         if(File.Exists(filePath))
@@ -57,6 +67,7 @@ public class GameManager : MonoBehaviour
         data.Lives = lives;
         data.Zombie = zombie;
         data.Coin1=coin1;
+        data.Currentplayer = currentplayer;
         BinaryFormatter bf = new BinaryFormatter();
         bf.Serialize(file,data);
         file.Close();
@@ -65,7 +76,7 @@ public class GameManager : MonoBehaviour
 
 
       public void LoadGame(){
-            var filePath = Application.persistentDataPath + "/t3-1.dat";
+            var filePath = Application.persistentDataPath + "/prueba.dat";
         FileStream file;
 
         if(File.Exists(filePath)){
@@ -84,7 +95,7 @@ public class GameManager : MonoBehaviour
         zombie= data.Zombie;
         balas = data.Balas;
         lives = data.Lives;
-    
+        currentplayer = data.Currentplayer;
         PrintScreenLives();
         PrintScreenCoin1();
         PrintScreenEnemigo();
@@ -108,6 +119,12 @@ public class GameManager : MonoBehaviour
    public int auxzombie(){
    return zombie;
    }
+
+  public int Personajes(){
+    return currentplayer;
+  }
+
+ 
 
     // Update is called once per frame
     //  public int Lives(){
@@ -178,6 +195,39 @@ public class GameManager : MonoBehaviour
    }
 
 
+
+//Personajes camnbio
+public void siguientePersonaje() {
+        if (currentplayer == 1 ) {
+            currentplayer = 0;
+        } else {
+            currentplayer++;
+        }
+        cambiarPersonaje();
+    }
+    public void anterioirPersonaje() {
+        if (currentplayer == 0 ) {
+            currentplayer = 1;
+        } else {
+            currentplayer--;
+        }
+        cambiarPersonaje();
+    }
+
+    public void cambiarPersonaje() {
+        imageComponent.sprite = players[currentplayer];
+    }
+
+    public void seleccionarPersonaje() {
+
+      SaveGame();
+      SceneManager.LoadScene(2);
+      
+    }
+
+
+ 
+   
 
         
 }

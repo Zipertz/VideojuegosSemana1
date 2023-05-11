@@ -11,4 +11,5 @@ public class GameData
    public int Lives {get;set;}
 
    public int Zombie {get;set;}
+    public int Currentplayer {get; set;}
 }

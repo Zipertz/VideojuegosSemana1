@@ -103,7 +103,7 @@ Transform:
   m_GameObject: {fileID: 5862936616669909220}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -5.32, y: -1.43, z: 0}
-  m_LocalScale: {x: 0.04355098, y: 0.039491456, z: 1}
+  m_LocalScale: {x: 0.41132593, y: 0.33521533, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5862936616139975398}
@@ -166,7 +166,7 @@ SpriteRenderer:
   m_SpriteSortPoint: 0
 --- !u!95 &5862936616669909216
 Animator:
-  serializedVersion: 5
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -183,8 +183,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!50 &5862936616669909217
 Rigidbody2D:
   serializedVersion: 4
@@ -247,6 +246,10 @@ MonoBehaviour:
   velocity: 1
   vcorrer: 2
   JumpForce: 5
+  jumpclip: {fileID: 0}
+  coin: {fileID: 0}
+  muerte: {fileID: 0}
+  bullet: {fileID: 0}
   piesSalto: {fileID: 5862936616139975392}
   paredSalto: {fileID: 8636614126908184897}
   paredIzquierda: {fileID: 5862936617876008420}
